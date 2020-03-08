@@ -68,8 +68,7 @@ class Fire {
     createAccount = async (user, success_callback, failed_callback) => {
         firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function() {
             var userf = firebase.auth().currentUser;
-            userf.updateProfile({ displayName: user.name})
-            .then(success_callback, function(error) {
+            userf.updateProfile({ displayName: user.name}).then(success_callback, function(error) {
               console.warn("Erro ao adicionar o attr:Name.");
             });
           },
