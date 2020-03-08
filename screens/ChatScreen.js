@@ -1,6 +1,6 @@
 import React from 'react';
 import {KeyboardAvoidingView, View, StyleSheet, Text } from 'react-native';
-import { GiftedChat, Send, InputToolbar, Composer} from 'react-native-gifted-chat';
+import { GiftedChat, Send, InputToolbar, Composer, Bubble} from 'react-native-gifted-chat';
 import {Ionicons} from '@expo/vector-icons';
 
 import Fire from '../Fire';
@@ -60,7 +60,7 @@ export default class ChatScreen extends React.Component {
 
   renderComposer(props) {
     return (
-      <Composer {...props} composerHeight={55} placeholderTextColor="#514e5a" />
+      <Composer {...props} composerHeight={50} placeholderTextColor="#514e5a" />
     )
   }
   
@@ -94,15 +94,16 @@ const styles = StyleSheet.create({
   input: {
     paddingVertical: 5,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#BAB7C3',
+    borderColor: '#25B7D3',
     borderRadius: 30,
     paddingHorizontal: 20,
     fontWeight: '600',
+    fontSize: 14,
     alignSelf: 'center'
   },
   send: {
-    width: 70,
-    height: 70,
+    width: 65,
+    height: 65,
     borderRadius: 35,
     backgroundColor: '#25B7D3',
     alignItems: 'center',
@@ -115,8 +116,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
   },
-  actions: {
-    alignItems:'center',
-    justifyContent: 'center'
-  }
 })
