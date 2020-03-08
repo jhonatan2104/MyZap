@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import {Alert} from 'react-native'
 
 class Fire {
     constructor() {
@@ -60,19 +61,19 @@ class Fire {
       return (firebase.auth().currentUser || {}).uid;
     }
 
-    createAccount = async user => {
+    getUserName = email => {
+      return (firebase.auth().currentUser || {}).displayName;
+    }
+
+    createAccount = async (user, success_callback, failed_callback) => {
         firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function() {
             var userf = firebase.auth().currentUser;
             userf.updateProfile({ displayName: user.name})
-            .then(function() {
-              alert("Usuario " + user.name + " foi criado com Sucesso.");
-            }, function(error) {
+            .then(success_callback, function(error) {
               console.warn("Erro ao adicionar o attr:Name.");
             });
-          }, function(error) {
-            console.error("Error:" + error.message);
-            alert("Falha ao criar a conta");
-        });
+          },
+           failed_callback);
     }
 }
 

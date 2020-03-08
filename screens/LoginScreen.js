@@ -21,12 +21,11 @@ export default function LoginScreen({ navigation }) {
   function loginSuccess() {
     navigation.navigate('Chat', {
         email,
-        password
     })
   }
 
   function loginFailed() {
-    Alert.alert("Falha de Autenticação")
+    Alert.alert("Tente outra vez!", "Email ou Senha errados")
   }
 
   return (
@@ -49,7 +48,7 @@ export default function LoginScreen({ navigation }) {
             style={styles.input} 
             placeholder="Digite sua senha..."
             autoCorrect = {false}
-            passwordRules
+            secureTextEntry
             onChangeText={setPassword} 
             value={password}/>
         </View>

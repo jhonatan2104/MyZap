@@ -33,7 +33,7 @@ export default class ChatScreen extends React.Component {
 
   get user() {
     return {
-      name: "Jhonatan",
+      name: Fire.getUserName,
       email: this.props.navigation.state.params.email,
       _id: Fire.uid,
     };
