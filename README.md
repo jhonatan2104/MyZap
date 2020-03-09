@@ -50,7 +50,7 @@ Rodando projeto pelo Expo
  ## Funcionalidades Futuras
  
  - Salvar o email do último usuário que fez login
- - Tela Home com switch para as conversas com outros usuário
+ - Tela Home
  - Modelar banco de dados para conversas private
  - Button para logOut
  
