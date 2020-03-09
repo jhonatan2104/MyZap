@@ -1,6 +1,6 @@
 import React from 'react';
 import {KeyboardAvoidingView, View, StyleSheet, Text } from 'react-native';
-import { GiftedChat, Send, InputToolbar, Composer, Bubble} from 'react-native-gifted-chat';
+import { GiftedChat, Send, InputToolbar, Composer, Bubble, MessageText} from 'react-native-gifted-chat';
 import {Ionicons} from '@expo/vector-icons';
 
 import Fire from '../Fire';
@@ -64,6 +64,12 @@ export default class ChatScreen extends React.Component {
     )
   }
   
+  renderMessageText(props){
+    return (
+      <MessageText {...props} textProps={{style: styles.textMessager}} />
+    )
+  }
+  
   renderFooter(){
     return (
       <View style={{height: 40}}/>
@@ -75,7 +81,9 @@ export default class ChatScreen extends React.Component {
         <KeyboardAvoidingView style={{flex: 1}} behavior='padding' keyboardVerticalOffset={30} enabled>
           <GiftedChat
           alwaysShowSend
+          multiline
           renderUsernameOnMessage
+          renderMessageText={this.renderMessageText}
           renderFooter={this.renderFooter}
           renderComposer={this.renderComposer}
           renderSend={this.renderSend}
@@ -116,4 +124,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 5,
   },
+  bubble: {
+    backgroundColor: 'black',
+    padding: 40
+  },
+  textMessager: {
+    fontSize: 15,
+    fontWeight: '800'
+  }
 })
