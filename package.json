@@ -30,6 +30,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-native": "^0.63.43",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "babel-plugin-module-resolver": "^4.1.0",
     "babel-preset-expo": "^8.3.0",
     "eslint": "^7.16.0",
     "eslint-config-standard-with-typescript": "^19.0.1",
