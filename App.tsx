@@ -1,19 +1,8 @@
-import { createAppContainer } from 'react-navigation'
-import { createStackNavigator } from 'react-navigation-stack'
+import React from 'react'
+import Router from '@/main/router'
 
-import Chat from './src/presentation/pages/ChatScreen'
-import Login from './src/presentation/pages/LoginScreen'
-import CreateAccount from './src/presentation/pages/CreateAccount'
+const App: React.FC = () => {
+  return <Router />
+}
 
-const AppStack = createStackNavigator(
-  {
-    Login,
-    Chat,
-    CreateAccount
-  },
-  {
-    headerMode: 'none'
-  }
-)
-
-export default createAppContainer(AppStack)
+export default App
