@@ -22,7 +22,8 @@
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "~2.15.0",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
