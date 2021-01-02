@@ -6,12 +6,13 @@ export class FireClient implements IFireClient {
   public fireInstance: IFireClient.FireInstance
 
   constructor () {
-    this.fireInstance = this.init()
+    this.init()
+    this.fireInstance = firebase.app()
   }
 
-  init = (): IFireClient.FireInstance => {
+  init = (): void => {
     if (!firebase.apps.length) {
-      return firebase.initializeApp(appCertificate)
+      firebase.initializeApp(appCertificate)
     }
   }
 }
