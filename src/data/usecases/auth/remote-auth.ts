@@ -12,7 +12,7 @@ export class RemoteAuth extends FireClient implements Auth {
           resolve(credentialToAccount(result))
         })
         .catch((err) => {
-          reject(err)
+          reject(super.parseError(err))
         })
     })
   }
