@@ -3,7 +3,7 @@ import {KeyboardAvoidingView, View, StyleSheet, Text } from 'react-native';
 import { GiftedChat, Send, InputToolbar, Composer, Bubble, MessageText} from 'react-native-gifted-chat';
 import {Ionicons} from '@expo/vector-icons';
 
-import Fire from '../Fire';
+import Fire from '../../../Fire';
 
 export default class ChatScreen extends React.Component {
   constructor(){
