@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, Image, KeyboardAvoidingView, Alert } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { factoryRemoteAuth } from '@/main/factories/usecases/remote-auth-factory'
 
 import styles from '../../../constants/Styles'
+import { Auth } from '@/domain/usecases'
 
 // import Fire from '../Fire'
 
-const FireRemoteAuth = factoryRemoteAuth()
-
 type Props = {
   navigation: any
+  authentication: Auth
 }
 
-const LoginScreen: React.FC<Props> = ({ navigation }: Props) => {
+const LoginScreen: React.FC<Props> = ({ navigation, authentication }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -22,7 +21,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }: Props) => {
       email,
       password
     }
-    FireRemoteAuth.auth(user)
+    authentication.auth(user)
       .then(loginSuccess)
       .catch(loginFailed)
   }
