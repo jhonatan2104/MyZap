@@ -12,5 +12,7 @@ web-report/
 
 yarn.lock
 
+certificates/**/**
+
 # macOS
 .DS_Store
