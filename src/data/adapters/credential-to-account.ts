@@ -5,7 +5,6 @@ export const credentialToAccount = (credential: firebase.auth.UserCredential): A
   return {
     name: credential.user.displayName,
     email: credential.user.email,
-    uid: credential.user.uid,
-    accessToken: ''
+    uid: credential.user.uid
   }
 }
