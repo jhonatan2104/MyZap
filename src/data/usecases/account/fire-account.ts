@@ -1,6 +1,5 @@
 import { Account } from '@/domain/usecases'
 import { FireClient } from '@/infra'
-import { makeUuid } from '@/data/factories/uuid-factory'
 
 export class FireAccount extends FireClient implements Account {
   add = async (params: Account.ParamsAddAccount): Promise<Account.Model> => {
@@ -13,14 +12,12 @@ export class FireAccount extends FireClient implements Account {
 
       await userCurrent.updateProfile({ displayName: params.name })
 
-      const uuid = makeUuid('ACC')
-
-      const userRefDoc = this.firestore.collection('accounts').doc(uuid)
+      const userRefDoc = this.firestore.collection('accounts').doc(userCurrent.uid)
 
       const newAccount = {
         name: params.name,
         email: params.email,
-        uid: uuid
+        uid: userCurrent.uid
       }
 
       await userRefDoc.set(newAccount)
