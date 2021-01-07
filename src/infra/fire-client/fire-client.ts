@@ -1,13 +1,16 @@
 import { FireClient as IFireClient } from '@/data/protocols'
-import firebase from 'firebase'
+import * as firebase from 'firebase'
+import 'firebase/firestore'
 import appCertificate from '@/../certificates/google/app.json'
 
 export abstract class FireClient implements IFireClient {
   public fireInstance: IFireClient.FireInstance
+  public firestore: IFireClient.Firestore
 
   constructor () {
     this.init()
     this.fireInstance = firebase.app()
+    this.firestore = firebase.firestore()
   }
 
   init (): void {
